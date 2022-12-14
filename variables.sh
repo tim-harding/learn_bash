@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 a=5
 a+=2
