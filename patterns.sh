@@ -15,3 +15,24 @@ for file in ../**/*; do
         echo $file
     fi
 done
+echo
+
+# This command enables additional glob features:
+shopt -s extglob
+# It enables the following features:
+# - ?(list): Matches zero or one occurrence of the given patterns.
+# - *(list): Matches zero or more occurrences of the given patterns.
+# - +(list): Matches one or more occurrences of the given patterns.
+# - @(list): Matches one of the given patterns.
+# - !(list): Matches anything but the given patterns.
+# For example:
+
+echo ../**/!(*.sh|*.json)
+
+# Regex can also be used, but only within the [[]] context. This dialect does
+# seem a bit unfamiliar, however, as the below does not work. The reference
+# source is this:
+# https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04
+if [[ 'english' =~ '\w+li\w+' ]]; then
+    echo "Matches!"
+fi
